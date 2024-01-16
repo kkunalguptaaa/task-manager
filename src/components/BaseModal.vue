@@ -1,26 +1,35 @@
 <template>
-    <div v-if="visible" class='bg-black bg-opacity-40 absolute top-0 w-dvw h-dvh flex justify-center items-center'>
-        <div class="bg-primary-background-light relative p-6 flex flex-col">
-            <button @click='onCloseModal' class='bg-transparent absolute top-0 right-0 flex justify-end p-3 cursor-pointer border-0 '>
-                <i :class="{'text-primary-icons-default hover:text-primary-icons-hover': colorVariant === 'primary'}" style="font-size:24px" class="fa fa-close"></i >
-            </button>
-            <slot />
-        </div>
+  <div v-if="visible" class="absolute top-0 flex h-dvh w-dvw items-center justify-center bg-black bg-opacity-40">
+    <div class="relative flex flex-col bg-primary-background-light p-6">
+      <button
+        @click="onCloseModal"
+        class="absolute right-0 top-0 flex cursor-pointer justify-end border-0 bg-transparent p-3"
+      >
+        <i
+          :class="{
+            'text-primary-icons-default hover:text-primary-icons-hover': colorVariant === 'primary',
+          }"
+          style="font-size: 24px"
+          class="fa fa-close"
+        ></i>
+      </button>
+      <slot />
     </div>
+  </div>
 </template>
 
 <script setup>
-defineEmits(['onClose'])
+defineEmits(['onClose']);
 defineProps({
-    colorVariant: String,
-})
+  colorVariant: String,
+});
 
 const visible = defineModel('visible', {
-    type: Boolean,
-    default: false,
-})
+  type: Boolean,
+  default: false,
+});
 
 const onCloseModal = () => {
-    visible.value = false;
-}
+  visible.value = false;
+};
 </script>
