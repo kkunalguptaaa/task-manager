@@ -1,24 +1,26 @@
 <template>
-    <div class="add-task">
-        <h1 class="heading">Add Task</h1>
-        <form @submit.prevent="onSubmit" class="add-task-form">
-            <label for = 'task'>Task</label>
-            <input id="task" required class="input-box" name="title" type="text" v-model="title" placeholder="Enter Task" />
-            <label for = 'date-time'>Date & Time</label>
-            <input id="date-time" required class="input-box" name="date-time" type="datetime-local" v-model="dateTime" placeholder="Enter Date & Time" />
-            <div class='checkbox'>
-                <label for="reminder">Set Reminder</label>
-                <input id="reminder" class="checkbox-input" type="checkbox" v-model="reminder" name="reminder" />
+    <div class="p-1 flex flex-col justify-center align-middle">
+        <h2 class="text-3xl font-bold m-auto text-primary-text-default">Add Task</h2>
+        <form @submit.prevent="onSubmit" class="flex flex-col justify-center">
+            <label class="text-primary-text-default" for = 'task'>Task</label>
+            <input id="task" required class="w-64 p-2 mb-5 border border-solid border-primary-border rounded-sm" name="title" type="text" v-model="title" placeholder="Enter Task" />
+            <label class="text-primary-text-default" for = 'date-time'>Date & Time</label>
+            <input id="date-time" required class="w-64 p-2 mb-5 border border-solid border-primary-border rounded-sm" name="date-time" type="datetime-local" v-model="dateTime" placeholder="Enter Date & Time" />
+            <div class='flex flex-row align-middle'>
+                <label class="text-primary-text-default" for="reminder">Set Reminder</label>
+                <input id="reminder" class="ml-2" type="checkbox" v-model="reminder" name="reminder" />
             </div>
-            <input class="submit-button" type="submit" />
+            <BaseButton type="submit" :full-size="true" :rounded="false" text="SUBMIT" />
         </form>
     </div>
 </template>
+
 <script setup>
 import { ref } from 'vue';
 import {useTaskActions} from '../composables/useTask';
+import BaseButton from './BaseButton.vue';
 
-const {addTask, getTasks} = useTaskActions();
+const {addTask} = useTaskActions();
 const title = ref('');
 const dateTime = ref(null);
 const reminder = ref(false);
@@ -40,64 +42,4 @@ const onSubmit = () => {
     addTask(newTask);
     resetForm();
 }
-
-
 </script>
-<style scoped>
-.add-task {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 5px;
-    color: #50C878;
-}
-
-.add-task-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    font-size: 16px;
-    font-weight: 500;
-}
-.heading {
-    margin-bottom: 20px;
-}
-
-.input-box {
-    width: 250px;
-    padding: 5px 10px;
-    margin-bottom: 20px;
-    border: 1px solid #50C878;
-    border-radius: 2px;
-}
-
-.input-box:active {
-    border: 1px solid #50C878;
-}
-.submit-button {
-    background-color: #50C878;
-    color: #FFFFFF;
-    padding: 7px 10px;
-    border-radius: 2px;
-    border: 2px solid #50C878;
-    font-size: 16px;
-    font-weight: 500;
-    transition: background-color 0.5s;
-}
-.submit-button:hover {
-    background-color: #FFFFFF;
-    color: #50C878;
-    border: 2px solid #50C878;
-    cursor: pointer;
-}
-.checkbox {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 100%;
-}
-.checkbox-input {
-    margin-left: 10px;
-}
-</style>

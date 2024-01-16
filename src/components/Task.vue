@@ -1,13 +1,15 @@
-<template lang="">
+<template>
   <div
     @dblclick="$emit('toggle-reminder', task)"
-    :class="[task.reminder ? 'reminder' : 'no-reminder', 'task']"
+    :class="[task.reminder ? 'border-primary-border' : 'border-transparent', 'bg-primary-background-light m-1 px-5 py-3 cursor-pointer border-l-4 border-solid flex justify-between items-center text-primary-default']"
   >
-    <h3>
+  <div>
+    <h3 class="text-xl font-semibold flex justify-between items-center text-primary-text-heading">
       {{ task.title }}
-      <i @click="$emit('delete-task', task.id)" class="fa fa-trash"></i>
     </h3>
     <p>{{ task.dateTime }}</p>
+  </div>
+    <i @click="$emit('delete-task', task.id)" class="fa fa-trash text-xl text-primary-icons-default hover:text-primary-icons-hover"></i>
   </div>
 </template>
 
@@ -22,30 +24,3 @@ defineProps({
     }
 })
 </script>
-
-<style scoped>
-.fa {
-  color: #50C878;
-}
-
-.task {
-  background: #f4f4f4;
-  margin: 5px;
-  padding: 10px 20px;
-  cursor: pointer;
-}
-
-.task.reminder {
-  border-left: 5px solid #50C878;
-}
-
-.task.no-reminder {
-  border-left: 5px solid transparent;
-}
-
-.task h3 {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-</style>

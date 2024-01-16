@@ -1,8 +1,9 @@
 <template>
-    <BaseModal color-variant="green" v-model:visible="visible">
+    <BaseModal color-variant="primary" v-model:visible="visible">
         <AddTaskForm/>
     </BaseModal>
 </template>
+
 <script setup>
 import BaseModal from './BaseModal.vue';
 import AddTaskForm from './AddTaskForm.vue';
@@ -12,6 +13,3 @@ const visible = defineModel('visible', {
         default: false,
 })
 </script>
-<style scoped>
-    
-</style>

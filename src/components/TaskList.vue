@@ -17,7 +17,4 @@ const toggleReminder = (task) => {
     task.reminder = !task.reminder;
     updateTask(task);
 }
-
 </script>
-<style scoped>
-</style>
