@@ -1,6 +1,11 @@
-# task-manager
+# Task Manager
 
 This is a task manager app created for learning and practing Vue.js and Tailwind
+
+## Screenshots
+
+![Home Page screenshot](image.png)
+![Alt text](image-1.png)
 
 ## Recommended IDE Setup
 
