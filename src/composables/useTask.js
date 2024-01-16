@@ -5,19 +5,19 @@ const tasks = ref([
       "id": "1",
       "title": "Doctors Appointment",
       "dateTime": "March 5th at 2:30pm",
-      "reminder": true
+      "reminder": true,
     },
     {
       "id": "2",
       "title": "Meeting with boss",
       "dateTime": "March 6th at 1:30pm",
-      "reminder": true
+      "reminder": true,
     },
     {
       "id": "3",
       "title": "Food shopping",
       "dateTime": "March 7th at 2:00pm",
-      "reminder": false
+      "reminder": false,
 }]);
 
 export const useTaskActions = () => {
@@ -43,4 +43,3 @@ export const useTaskActions = () => {
 
     return {addTask, deleteTask, getTasks, updateTask};
 }
-

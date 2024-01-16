@@ -1,6 +1,6 @@
 # task-manager
 
-This template should help get you started developing with Vue 3 in Vite.
+This is a task manager app created for learning and practing Vue.js and Tailwind
 
 ## Recommended IDE Setup
 

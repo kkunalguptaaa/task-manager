@@ -1,5 +1,4 @@
 <template>
-
     <AddTaskModal v-model:visible="isAddTaskFormVisible" />
     <TaskList />
 </template>
@@ -12,5 +11,3 @@ const isAddTaskFormVisible = defineModel('isAddTaskFormVisible', {
         default: false,
     })
 </script>
-<style scoped>
-</style>
